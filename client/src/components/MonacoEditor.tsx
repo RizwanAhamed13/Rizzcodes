@@ -2,6 +2,25 @@ import { useEffect, useRef } from 'react';
 import * as monaco from 'monaco-editor';
 import { useAppStore } from '@/stores/appStore';
 
+// Configure Monaco environment for web workers
+(window as any).MonacoEnvironment = {
+  getWorkerUrl: function (moduleId: string, label: string) {
+    if (label === 'json') {
+      return '/monaco-editor/min/vs/language/json/json.worker.js';
+    }
+    if (label === 'css' || label === 'scss' || label === 'less') {
+      return '/monaco-editor/min/vs/language/css/css.worker.js';
+    }
+    if (label === 'html' || label === 'handlebars' || label === 'razor') {
+      return '/monaco-editor/min/vs/language/html/html.worker.js';
+    }
+    if (label === 'typescript' || label === 'javascript') {
+      return '/monaco-editor/min/vs/language/typescript/ts.worker.js';
+    }
+    return '/monaco-editor/min/vs/editor/editor.worker.js';
+  }
+};
+
 // Configure Monaco for dark theme to match VSCode
 monaco.editor.defineTheme('vscode-dark-custom', {
   base: 'vs-dark',

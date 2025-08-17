@@ -11,6 +11,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { OpenRouterService } from '@/services/openrouter';
 import { useToast } from '@/hooks/use-toast';
+import type { ChatMessage } from '@shared/schema';
 
 interface CodeTab {
   id: string;
@@ -70,7 +71,7 @@ export function TaskBoard() {
     }
   ]);
 
-  const { data: chatMessages = [] } = useQuery({
+  const { data: chatMessages = [] } = useQuery<ChatMessage[]>({
     queryKey: ['/api/projects', currentProject?.id, 'chat', 'coder'],
     enabled: !!currentProject?.id,
   });

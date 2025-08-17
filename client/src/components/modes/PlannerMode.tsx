@@ -213,7 +213,7 @@ export function PlannerMode() {
                     message.role === 'user' ? 'text-right' : ''
                   }`}>
                     {message.role === 'user' ? 'You' : 'AI Assistant'} • 
-                    {new Date(message.createdAt).toLocaleTimeString()}
+                    {message.createdAt ? new Date(message.createdAt).toLocaleTimeString() : 'Just now'}
                   </div>
                 </div>
 

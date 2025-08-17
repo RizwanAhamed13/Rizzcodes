@@ -1,7 +1,13 @@
-import { Minus, Square, X, Code } from 'lucide-react';
+import { useState } from 'react';
+import { Minus, Square, X, Code, Settings, Key } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ApiKeySettings } from '@/components/ApiKeySettings';
+import { useAppStore } from '@/stores/appStore';
 
 export function AppHeader() {
+  const [showApiSettings, setShowApiSettings] = useState(false);
+  const { openRouterConfig } = useAppStore();
+
   const handleMinimize = () => {
     // In a real Electron app, this would minimize the window
     console.log('Minimize window');
@@ -22,6 +28,23 @@ export function AppHeader() {
       <div className="flex items-center space-x-2">
         <Code className="w-4 h-4 text-ai-primary" />
         <span className="font-medium text-vscode-text">Rizz Codes</span>
+      </div>
+      
+      {/* Center - API Key Status & Settings */}
+      <div className="flex items-center space-x-2 no-drag">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => setShowApiSettings(true)}
+          className={`h-6 px-2 text-xs hover:bg-vscode-hover ${
+            openRouterConfig?.isConnected 
+              ? 'text-green-400 hover:text-green-300' 
+              : 'text-vscode-text-muted hover:text-vscode-text'
+          }`}
+        >
+          <Key className="w-3 h-3 mr-1" />
+          {openRouterConfig?.isConnected ? 'API Connected' : 'Setup API'}
+        </Button>
       </div>
       <div className="flex items-center space-x-1 no-drag">
         <Button
@@ -49,6 +72,11 @@ export function AppHeader() {
           <X className="w-3 h-3" />
         </Button>
       </div>
+      
+      <ApiKeySettings 
+        isOpen={showApiSettings} 
+        onClose={() => setShowApiSettings(false)} 
+      />
     </div>
   );
 }
