@@ -364,7 +364,7 @@ export function TaskBoard() {
         
         <ScrollArea className="flex-1 p-3">
           <div className="space-y-2 text-sm">
-            {chatMessages.filter(msg => msg.metadata?.activeFile).map((message) => (
+            {chatMessages.filter(msg => msg.metadata && typeof msg.metadata === 'object' && 'activeFile' in msg.metadata).map((message) => (
               <Card key={message.id} className={`${
                 message.role === 'user' ? 'bg-vscode-bg' : 'bg-ai-primary/10'
               } border-vscode-border`}>
@@ -377,7 +377,7 @@ export function TaskBoard() {
               </Card>
             ))}
             
-            {chatMessages.filter(msg => msg.metadata?.activeFile).length === 0 && (
+            {chatMessages.filter(msg => msg.metadata && typeof msg.metadata === 'object' && 'activeFile' in msg.metadata).length === 0 && (
               <div className="text-vscode-text-muted text-center py-8">
                 No context chat messages yet.<br />
                 Start by asking about your code!

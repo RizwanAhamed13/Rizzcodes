@@ -83,7 +83,7 @@ export function PlannerMode() {
       ];
 
       const aiResponse = await OpenRouterService.sendChatMessage(aiMessages, {
-        model: 'anthropic/claude-3.5-sonnet',
+        model: 'meta-llama/llama-3.2-3b-instruct:free',
         temperature: 0.7,
         max_tokens: 1000
       });

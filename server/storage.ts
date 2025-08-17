@@ -148,18 +148,27 @@ export class MemStorage implements IStorage {
 
   // OpenRouter Config
   async getOpenRouterConfig(): Promise<OpenRouterConfig | undefined> {
+    // Initialize with environment variable if no config exists
+    if (!this.openRouterConfig && process.env.OPENROUTER_API_KEY) {
+      await this.updateOpenRouterConfig({
+        apiKey: process.env.OPENROUTER_API_KEY
+      });
+    }
     return this.openRouterConfig;
   }
 
   async updateOpenRouterConfig(config: Partial<InsertOpenRouterConfig>): Promise<OpenRouterConfig> {
+    // Use environment variable as default API key
+    const envApiKey = process.env.OPENROUTER_API_KEY;
+    
     if (!this.openRouterConfig) {
       const id = randomUUID();
       this.openRouterConfig = {
         id,
-        apiKey: null,
-        selectedModel: "anthropic/claude-3.5-sonnet",
-        modelConfigs: {},
-        isConnected: false,
+        apiKey: config.apiKey || envApiKey || null,
+        selectedModel: "meta-llama/llama-3.2-3b-instruct:free",
+        modelConfigs: { freeOnly: true },
+        isConnected: !!(config.apiKey || envApiKey),
         updatedAt: new Date(),
         ...config
       };
@@ -169,6 +178,11 @@ export class MemStorage implements IStorage {
         ...config,
         updatedAt: new Date()
       };
+      
+      // Update connection status based on API key availability
+      if (config.apiKey || envApiKey) {
+        this.openRouterConfig.isConnected = true;
+      }
     }
     return this.openRouterConfig;
   }

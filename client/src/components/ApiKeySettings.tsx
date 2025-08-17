@@ -29,7 +29,7 @@ interface ApiKeySettingsProps {
 
 export function ApiKeySettings({ isOpen, onClose }: ApiKeySettingsProps) {
   const [apiKey, setApiKey] = useState('');
-  const [selectedModel, setSelectedModel] = useState('anthropic/claude-3.5-sonnet');
+  const [selectedModel, setSelectedModel] = useState('meta-llama/llama-3.2-3b-instruct:free');
   const [freeOnly, setFreeOnly] = useState(true);
   const [testingConnection, setTestingConnection] = useState(false);
   const { toast } = useToast();
@@ -64,7 +64,9 @@ export function ApiKeySettings({ isOpen, onClose }: ApiKeySettingsProps) {
   useEffect(() => {
     if (openRouterConfig) {
       setApiKey(openRouterConfig.apiKey || '');
-      setSelectedModel(openRouterConfig.selectedModel || 'anthropic/claude-3.5-sonnet');
+      setSelectedModel(openRouterConfig.selectedModel || 'meta-llama/llama-3.2-3b-instruct:free');
+      // Force free models only
+      setFreeOnly(true);
     }
   }, [openRouterConfig]);
 

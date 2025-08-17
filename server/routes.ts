@@ -136,20 +136,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/openrouter/chat", async (req, res) => {
     try {
       const config = await storage.getOpenRouterConfig();
-      if (!config?.apiKey) {
+      const apiKey = config?.apiKey || process.env.OPENROUTER_API_KEY;
+      
+      if (!apiKey) {
         return res.status(400).json({ error: "OpenRouter API key not configured" });
       }
 
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${config.apiKey}`,
+          "Authorization": `Bearer ${apiKey}`,
           "Content-Type": "application/json",
           "HTTP-Referer": "http://localhost:5000",
           "X-Title": "Rizz Codes"
         },
         body: JSON.stringify({
-          model: config.selectedModel,
+          model: config?.selectedModel || "meta-llama/llama-3.2-3b-instruct:free",
           messages: req.body.messages,
           ...req.body.options
         })

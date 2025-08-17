@@ -37,7 +37,7 @@ export const chatMessages = pgTable("chat_messages", {
 export const openrouterConfig = pgTable("openrouter_config", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   apiKey: text("api_key"),
-  selectedModel: text("selected_model").default("anthropic/claude-3.5-sonnet"),
+  selectedModel: text("selected_model").default("meta-llama/llama-3.2-3b-instruct:free"),
   modelConfigs: json("model_configs").default({}),
   isConnected: boolean("is_connected").default(false),
   updatedAt: timestamp("updated_at").defaultNow(),
