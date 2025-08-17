@@ -1,6 +1,14 @@
 # Overview
 
-This is "Rizz Codes," an AI-powered coding platform designed to be a next-generation development environment. The application features five distinct operational modes (Planner, Architect, Coder, Auto, Debug) that tailor AI behavior to specific development tasks. The platform integrates with OpenRouter API for access to multiple AI models and provides a VS Code-like interface for code editing and project management.
+This is "Rizz Codes," a complete AI-powered Integrated Development Environment (IDE) designed as a next-generation development platform. The application features five distinct operational modes (Planner, Architect, Coder, Auto, Debug) with a full IDE experience including terminal console, resource network monitoring, and resizable panel system. The platform integrates with OpenRouter API for access to multiple AI models and provides a comprehensive VS Code-like interface for professional development.
+
+## Recent Changes (August 2025)
+- **Complete IDE Transformation**: Added terminal console with command execution simulation
+- **Resource Network Panel**: Real-time monitoring of APIs, databases, and services  
+- **Resizable Panel System**: Professional IDE layout with closable/resizable panels
+- **Enhanced UI Architecture**: Comprehensive panel management with VS Code theming
+- **Free Model Integration**: Configured to use only free OpenRouter models by default
+- **Production Ready**: Complete repository setup ready for git deployment
 
 # User Preferences
 
