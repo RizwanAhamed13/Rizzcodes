@@ -9,6 +9,7 @@ import { AutoMode } from '@/components/modes/AutoMode';
 import { DebugMode } from '@/components/modes/DebugMode';
 import { useAppStore } from '@/stores/appStore';
 import { useQuery } from '@tanstack/react-query';
+import { Project, OpenRouterConfig } from '@shared/schema';
 
 export default function Home() {
   const { 
@@ -20,11 +21,11 @@ export default function Home() {
   } = useAppStore();
 
   // Fetch initial data
-  const { data: projects = [] } = useQuery({
+  const { data: projects = [] } = useQuery<Project[]>({
     queryKey: ['/api/projects'],
   });
 
-  const { data: openRouterConfig } = useQuery({
+  const { data: openRouterConfig } = useQuery<OpenRouterConfig | { isConnected: boolean }>({
     queryKey: ['/api/openrouter/config'],
   });
 
@@ -40,8 +41,8 @@ export default function Home() {
   }, [projects, setProjects, currentProject, setCurrentProject]);
 
   useEffect(() => {
-    if (openRouterConfig) {
-      setOpenRouterConfig(openRouterConfig);
+    if (openRouterConfig && 'id' in openRouterConfig) {
+      setOpenRouterConfig(openRouterConfig as OpenRouterConfig);
     }
   }, [openRouterConfig, setOpenRouterConfig]);
 
