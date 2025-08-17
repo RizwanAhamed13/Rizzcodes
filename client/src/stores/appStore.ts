@@ -18,6 +18,8 @@ interface AppState {
   // UI state
   isLoading: boolean;
   sidebarCollapsed: boolean;
+  terminalOpen: boolean;
+  resourceNetworkOpen: boolean;
   
   // Actions
   setCurrentMode: (mode: Mode) => void;
@@ -36,6 +38,9 @@ interface AppState {
   setOpenRouterConfig: (config: OpenRouterConfig) => void;
   setLoading: (loading: boolean) => void;
   toggleSidebar: () => void;
+  setSidebarCollapsed: (collapsed: boolean) => void;
+  setTerminalOpen: (open: boolean) => void;
+  setResourceNetworkOpen: (open: boolean) => void;
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -49,6 +54,8 @@ export const useAppStore = create<AppState>((set, get) => ({
   openRouterConfig: null,
   isLoading: false,
   sidebarCollapsed: false,
+  terminalOpen: false,
+  resourceNetworkOpen: false,
   
   // Actions
   setCurrentMode: (mode) => set({ currentMode: mode }),
@@ -102,4 +109,10 @@ export const useAppStore = create<AppState>((set, get) => ({
   toggleSidebar: () => set((state) => ({ 
     sidebarCollapsed: !state.sidebarCollapsed 
   })),
+  
+  setSidebarCollapsed: (collapsed) => set({ sidebarCollapsed: collapsed }),
+  
+  setTerminalOpen: (open) => set({ terminalOpen: open }),
+  
+  setResourceNetworkOpen: (open) => set({ resourceNetworkOpen: open }),
 }));
