@@ -1,0 +1,182 @@
+Rizz Codes: A Detailed Plan for a Superior AI Coding Platform
+This document outlines a plan to create "Rizz Codes," a next-generation, AI-powered coding environment. It's designed to be more intelligent, autonomous, and versatile than existing solutions by leveraging the OpenRouter API to its fullest.
+
+Core Philosophy
+Rizz Codes will be built on the principle of "intent-driven development." Instead of just assisting with code, it will understand the user's ultimate goal and proactively manage the entire development lifecycle, from planning and architecture to coding and debugging.
+
+Key Differentiators
+Mode-Based Workflow: Rizz Codes will feature distinct operational modes (Planner, Architect, Coder, Auto, Debug) that tailor the AI's behavior to the specific task at hand.
+
+OpenRouter Integration: Full integration with the OpenRouter API will provide access to a vast array of free and paid models, allowing for the selection of the best model for each specific task.
+
+True Autonomy: The "Auto" mode will be a true "fire-and-forget" solution, capable of taking a high-level goal and turning it into a functional, debugged application with minimal user intervention.
+
+Seamless Debugging: The "Debug" mode will not just identify errors but will actively work to resolve them by searching for solutions, implementing fixes, and testing the results.
+
+Operational Modes
+1. Planner Mode
+Purpose: To take a high-level user idea and break it down into a detailed project plan.
+
+Functionality:
+
+Engages in a dialogue with the user to clarify requirements.
+
+Generates a project brief, feature list, and user stories.
+
+Creates a task breakdown with estimated timelines.
+
+Suggested OpenRouter Models: Models with strong reasoning and conversational abilities (e.g., Claude 3.5 Sonnet, Google's Gemini Pro).
+
+2. Architect Mode
+Purpose: To design the technical architecture of the application.
+
+Functionality:
+
+Selects the optimal technology stack (frontend, backend, database, etc.).
+
+Designs the database schema.
+
+Creates API specifications.
+
+Generates diagrams (e.g., UML, sequence diagrams) to visualize the architecture.
+
+Suggested OpenRouter Models: Models with strong technical knowledge and the ability to generate structured data (e.g., GPT-4o, specialized coding models).
+
+3. Coder Mode
+Purpose: To write, refactor, and complete code.
+
+Functionality:
+
+Code generation from natural language prompts.
+
+Intelligent code completion.
+
+Code refactoring and optimization.
+
+Generation of unit tests and documentation.
+
+Suggested OpenRouter Models: A mix of fast models for completion (e.g., Code Llama) and more powerful models for complex generation.
+
+4. Auto Mode
+Purpose: To automate the entire development process.
+
+Functionality:
+
+Sequentially engages the Planner, Architect, and Coder modes.
+
+Maintains context and passes information between modes.
+
+Can be run in a fully autonomous or a supervised mode (where it prompts the user for approval at each stage).
+
+"Auto-in-Auto": A nested autonomous mode where the AI can break down a large task into smaller sub-tasks and run the full Planner-Architect-Coder cycle on each one.
+
+Suggested OpenRouter Models: A dynamic selection of models based on the current task, managed by a "master" model with strong reasoning capabilities.
+
+5. Debug Mode
+Purpose: To automatically find and fix errors in the code.
+
+Functionality:
+
+Monitors the application for errors and logs.
+
+When an error is detected, it automatically searches for solutions online.
+
+Generates and applies code patches.
+
+Runs tests to verify the fix.
+
+Can be triggered manually or run in the background.
+
+Suggested OpenRouter Models: Models with strong debugging and code analysis capabilities, combined with models that can perform web searches.
+
+The "Great Prompt" for Building Rizz Codes
+Here is a detailed prompt that you can use to guide the development of Rizz Codes. This prompt is designed to be given to a powerful AI model to generate the foundational code and structure for the application.
+
+You are an expert software architect and developer. Your task is to create a comprehensive plan and then the foundational code for a new AI-powered coding environment called "Rizz Codes." This application will be a desktop app built using Electron as a wrapper for a modern web stack: React with Vite and a Node.js backend. The application's core intelligence will be powered by the OpenRouter API.
+
+**Incorporate and Surpass Competitor Features:**
+
+To ensure Rizz Codes is a best-in-class tool, it must incorporate and improve upon the key technical features of leading platforms like Cursor and Wind-S-URF.
+
+***Inspired by Cursor:***
+* **Codebase-Wide Context:** Implement an `@` mention system to easily reference files, folders, and documentation within prompts, giving the AI deep, relevant context.
+* **Agentic Workflows:** Create an "Agent Mode" that can understand and execute complex, multi-file tasks from a single natural language instruction (e.g., "Refactor the authentication flow to use JWTs").
+* **Predictive Multi-Line Edits:** The code completion should not just suggest the next token, but predict and suggest entire blocks of code based on recent changes and overall intent.
+* **Automated Linting and Error Correction:** The AI should proactively detect lint errors and other bugs as code is written, suggesting and applying fixes automatically.
+* **Natural Language Terminal:** Integrate an AI assistant into the terminal that can translate plain English commands into the correct shell commands (e.g., "Find all files larger than 1MB and zip them").
+* **Custom AI Rules:** Allow users to create a configuration file (e.g., `.rizzrules`) in their project to define specific coding styles, patterns, and context that the AI should adhere to.
+
+***Inspired by Wind-S-URF:***
+* **Advanced Contextual Awareness (Cascade):** Develop a system that maintains a deep, real-time understanding of the user's actions and codebase. This system should have distinct modes for writing code directly versus having a conversation about the code.
+* **Intent Prediction (Supercomplete):** Go beyond simple code completion to predict the developer's next logical action or intent, helping to structure code, add necessary imports, or scaffold related files.
+* **Live Interactive Previews:** For web projects, embed a live preview panel directly in the IDE. This preview should be interactive, allowing the user to click on an element and instruct the AI to modify its corresponding code.
+* **Model Context Protocol (MCP):** Build a plugin system that allows Rizz Codes to connect to external tools and services (e.g., Figma, Stripe, Jira), enabling the AI to pull context and perform actions across a user's entire workflow.
+* **AI Memory:** Implement a "memory" system where the AI learns and remembers important aspects of a specific codebase, user preferences, and project rules to provide increasingly tailored assistance over time.
+
+***Next-Generation & Niche Features:***
+* **AI-Powered Collaborative Sessions:** Implement a Live Share-style feature where multiple developers can edit the same files in real-time. Crucially, all participants must share the same AI context. When one developer prompts the AI, the interaction is visible to all, creating a truly collaborative AI-human pairing session.
+* **Predictive Refactoring & Tech Debt Analysis:** The AI should periodically scan the entire codebase to identify "code smells," anti-patterns, and potential sources of technical debt. It should then proactively suggest large-scale refactoring operations with a clear explanation of the benefits.
+* **Custom Model Fine-Tuning:** Provide an interface for teams to securely connect their private repositories (GitHub, GitLab, Bitbucket) to fine-tune a dedicated model. This will allow the AI to learn the team's specific coding conventions, proprietary libraries, and architectural patterns for highly personalized suggestions.
+* **Automated PR Summaries & Code Review:** When a pull request is created, the AI will automatically generate a detailed summary of the changes, their purpose, and potential impacts. It will also perform an initial code review, commenting on potential bugs, style violations, or logic issues, and even engage in conversations within the PR comments.
+* **Intelligent Web Search with Source Attribution:** When the AI needs external information, it should perform an intelligent web search, synthesize the results into a coherent answer, and cite the specific URLs it used. This builds trust and allows for easy verification.
+* **Visual Collaboration Canvas (Canvas-as-Prompt):** Integrate a Miro-like infinite canvas. Teams can use this for brainstorming, diagramming, and planning. The AI can then use the contents of the canvas (diagrams, sticky notes, etc.) as a high-level prompt to generate project plans, user stories, or even prototype code.
+* **Enterprise-Grade Security Options:** For business users, offer options for on-premise or VPC deployment of the backend and AI models, ensuring that proprietary code never leaves the corporate network. Aim for SOC 2 and ISO compliance.
+
+**Core Requirements:**
+
+1.  **OpenRouter API Integration:** The application must be able to communicate with the OpenRouter API to access a wide range of language models. You will need to implement a system for managing API keys and for selecting different models for different tasks.
+
+2.  **Mode-Based Interface:** The user interface should be built around five distinct modes: Planner, Architect, Coder, Auto, and Debug. Each mode will have its own dedicated UI and functionality.
+
+3.  **Planner Mode:**
+    * A chat interface where the user can describe their project idea.
+    * The AI should ask clarifying questions to flesh out the requirements.
+    * The output should be a structured project plan, including a feature list, user stories, and a task breakdown. This should be displayed in an editable document format.
+
+4.  **Architect Mode:**
+    * The AI will take the project plan from the Planner mode as input.
+    * It will suggest a technology stack and allow the user to modify it.
+    * It will generate a database schema, which should be displayed in a visual editor.
+    * It will create API specifications (e.g., OpenAPI/Swagger).
+
+5.  **Coder Mode:**
+    * A feature-rich code editor with syntax highlighting, and intelligent code completion powered by a fast OpenRouter model.
+    * An inline chat feature for generating and editing code.
+    * A sidebar for project-wide chat and context-aware Q&A.
+    * The ability to generate unit tests and documentation for the current code.
+
+6.  **Auto Mode:**
+    * A simple interface with a single input for the user's high-level goal.
+    * A visual representation of the current stage (Planning, Architecting, Coding, Debugging).
+    * A log of the AI's actions and decisions.
+    * The ability to run in a fully autonomous mode or a supervised mode that requires user approval at key milestones.
+    * Implement the "Auto-in-Auto" feature, allowing the AI to recursively break down and solve complex problems.
+
+7.  **Debug Mode:**
+    * The ability to open a project from the local filesystem.
+    * A terminal that displays application logs and errors in real-time.
+    * When an error is detected, the AI should automatically:
+        * Analyze the error message and stack trace.
+        * Search for solutions online.
+        * Propose a code fix, showing a diff of the changes.
+        * Apply the fix with the user's approval.
+        * Re-run the application or tests to confirm the fix.
+
+**Technical Specifications:**
+
+* **Frontend:** React with Vite (using TypeScript)
+* **Backend:** Node.js
+* **Desktop Framework:** Electron
+* **State Management:** Zustand or Redux Toolkit
+* **Code Editor:** Monaco Editor
+
+**Your Task:**
+
+1.  Provide a detailed file and folder structure for the project that accommodates the React/Vite frontend, Node.js backend, and Electron main process files.
+2.  Write the foundational code for the main Electron application, including the setup for loading the Vite dev server in development and the built React files in production.
+3.  Implement the core OpenRouter API service in the Node.js backend, with methods for listing models and sending requests.
+4.  Create the basic UI structure for the five modes using React components, with placeholder components for each.
+5.  Set up the state management to handle the application's state, including the current mode, project data, and API settings.
+
+I expect a well-structured, commented, and production-ready codebase that I can then build upon.
+
